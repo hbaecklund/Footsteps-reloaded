@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map { height: 100% }
+    </style>
+	<link rel="stylesheet" href="css/themes/et_theme.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/add2home.css" />
+	<script type="application/javascript" src="scripts/add2home.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=visualization,geometry"></script>
+	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	
+	<style>
+	body { height:100%, width: 100% }
+	.control-right { position:absolute; right:10px; bottom: 80px }
+	input {
+				background-color: white !important;
+		  }	  
+		  
+		   /*Desktop*/
+		  @media all {
+			iframe {
+				overflow-x: hidden;
+				overflow-y: scroll;
+				-webkit-overflow-scrolling:touch;
+				}
+			div[id^="map"]{
+				position: absolute;
+				top: 43px;
+				right: 0;
+				width: 98%;
+				height: 86%;
+			}
+			div#btnsNav {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 120%
+			}
+			#teamLeaderBoard { width:300px;margin-left:auto;margin-right:auto;padding-top:25px; }
+		  }
+		  
+		  /*Phone*/
+		  @media only screen and (max-device-width: 480px)
+		  {
+			div[id^="map"]{
+				height: 90%;
+				width: 92%;
+				right: 0;
+			}
+			div#btnsNav {
+				right:0;
+			}
+		  }
+		  
+		   /*Tablet*/
+			
+			@media only screen and (max-device-width: 1024px) and (orientation:portrait) { 
+				div[id^="map"]{
+					height: 87%;
+					width: 97%;
+					right: 0;
+				}
+			}
+			@media only screen and (max-device-width: 1024px) and (orientation:landscape) { 
+				div[id^="map"]{
+					height: 83%;
+					width: 98%;
+					right: 0;
+				}
+			}
+	</style>
+    
+  </head>
+  
+  <body>
+	<div id="pageMap" data-role="page">
+			<div data-theme="a" data-role="header">
+				<h3>
+                    Project Footsteps
+                </h3>
+				<!--<a href='#' class='ui-btn-right' data-icon='delete' data-theme="a" onclick="authClient.logout();">Logout</a>-->
+            </div>
+            <div data-role="content">
+				
+                <div >
+					<div data-role="content" id="map"></div>
+				</div>
+				
+				<div data-role="controlgroup" data-type="vertical" data-theme="a" class='control-right'>
+					<a href="bikelines.html#diaAddTrip" data-role="button" data-theme="a" id="btnAddTrip">New Route</a>
+					<a href="bikelines.html#diaSaveTrip" data-role="button"  data-theme="a" id="btnSaveTrip" class="ui-disabled" onclick="tripStats();">Save Route</a>
+					<a href="bikelines.html#" data-role="button"  data-theme="a" id="btnClearMap" class="ui-disabled" onclick="clearMap();">Clear Map</a>
+				</div>
+				
+            </div>
+		</div>
+		
+		<div id="diaAddTrip" data-role="dialog">
+			<div data-role="header" data-theme="a">
+				<h1>Add Trip</h1>
+			</div>
+			<div data-role="content" data-theme="a">
+				<div data-role="content" data-theme="a">
+				<label for="startLoc">Start Location (e.g. Telefonplan, Hagersten):</label>
+				<input type="text" name="name" id="startLoc" value="" class="txtLoc" />
+				<label for="endLoc">End Location:</label>
+				<input type="text" name="name" id="endLoc" value="" class="txtLoc" />
+				<a href="bikelines.html#pageMap" data-role="button" data-theme="a" onclick="plotTrip();" class="ui-disabled" id="btnAddTrip2">Show Trip on Map</a>   
+				<a href="bikelines.html#pageMap" data-role="button" data-theme="a">Cancel</a> 
+				</div>				
+			</div>
+		</div>
+		
+		<div id="diaSaveTrip" data-role="dialog">
+			<div data-role="header" data-theme="a">
+				<h1>Save Trip</h1>
+			</div>
+			<div data-role="content" data-theme="a">
+				<div data-role="content" data-theme="a">
+					<span id="tripSpan"></span>
+					<div data-role="controlgroup" data-type="horizontal" data-theme="a" id="saveTripBtns">
+						<a href="bikelines.html#diaSaved" data-role="button" data-theme="a" id="btnSaveTripFinal" onclick="saveTrip();">Save Trip</a>
+						<a href="bikelines.html#pageMap" data-role="button"  data-theme="a" id="btnCancelSave">Cancel</a>
+					</div>
+				</div>				
+			</div>
+		</div>
+		
+		<div id="diaSaved" data-role="dialog">
+			<div data-role="header" data-theme="a">
+				<h1>Save Trip</h1>
+			</div>
+			<div data-role="content" data-theme="a">
+				<div data-role="content" data-theme="a">
+					<span id="savedSpan"></span>
+						<a href="bikelines.html#pageMap" data-role="button" data-theme="a" id="btnSavedOK">OK</a>
+				</div>				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var map
+			var dirRendererOptions = {draggable: true};
+			var dirDisplay = new google.maps.DirectionsRenderer(dirRendererOptions);
+			var dirService = new google.maps.DirectionsService;
+			var total;
+			var dataArray = new google.maps.MVCArray();
+			var routeData = [];
+
+			//Henriks untouched firebase
+			//Henriks untouched firebase
+			
+			var bikeLinesRef = new Firebase('https://footstepss.firebaseio.com/paths');
+			
+			//LOCATION OF STOCKHOLM
+
+			function initialize() {
+				var mapOptions = {
+					disableDefaultUI: true,
+					center: new google.maps.LatLng(59.3294, 18.0686),
+					zoom: 13,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(document.getElementById("map"),mapOptions);
+				dirDisplay.setMap(map);
+				var heatmap = new google.maps.visualization.HeatmapLayer({
+					data: dataArray,
+					radius: 15,
+					dissipate: true,
+					maxIntensity: 10
+				});
+				heatmap.setMap(map);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+			
+			$('.txtLoc').keyup(function(){
+					if ($('#startLoc').val() != "" && $('#endLoc').val() != "")
+					{
+						$('#btnAddTrip2').removeClass('ui-disabled');
+					}
+					else
+					{
+						$('#btnAddTrip2').addClass("ui-disabled");
+					}
+				});
+			
+			function clearMap()
+			{
+				dirDisplay.setMap(null)
+				$('#btnSaveTrip').addClass('ui-disabled');
+				$('#btnClearMap').addClass('ui-disabled');
+			}
+			
+			function plotTrip()
+			{
+					var dirRequest = {
+						origin: $('#startLoc').val() + ", Stockholm, Sweden",
+						destination: $('#endLoc').val() + ", Stockholm, Sweden",
+						travelMode: google.maps.TravelMode.WALKING,
+					};
+					dirDisplay.setMap(map);
+					dirService.route(dirRequest, function(response, status) {
+						if (status == google.maps.DirectionsStatus.OK) {
+							dirDisplay.setDirections(response);
+							$('#btnSaveTrip').removeClass('ui-disabled');
+							$('#btnClearMap').removeClass('ui-disabled');
+						}
+					});
+			}
+			
+			function tripStats()
+			{
+				total = 0; 
+				var myroute = dirDisplay.directions.routes[0]; 
+				for (i = 0; i < myroute.legs.length; i++) { 
+					total += myroute.legs[i].distance.value; 
+				}
+				total = Math.round(total/100)/10;
+				startAdd = dirDisplay.directions.routes[0].legs[0].start_address; 
+				endAdd = dirDisplay.directions.routes[dirDisplay.directions.routes.length-1].legs[dirDisplay.directions.routes[dirDisplay.directions.routes.length-1].legs.length-1].end_address; 
+				$('#tripSpan').html('<u>Start Address:</u><br>' + startAdd + '<br><br><u>End Address:</u><br>' + endAdd + '<br><br><u>Distance:</u> ' + total + "km<br><br>")
+			}
+			
+			function saveTrip()
+			{
+				routeData.clear();
+				for (var i = 0; i < dirDisplay.directions.routes[0].legs.length; i++) {
+					for (var j = 0; j < dirDisplay.directions.routes[0].legs[i].steps.length; j++) {
+						routeData.push(dirDisplay.directions.routes[0].legs[i].steps[j].path);
+					}
+				}
+				console.log(routeData);
+				
+				bikeLinesRef.push(routeData, function(error){
+					if (error) {
+						$('#savedSpan').html('Data could not be saved.' + error);
+					} else {
+						$('#savedSpan').html('Data saved successfully!');
+					}
+				});
+			}
+			
+			Array.prototype.clear = function() {
+				this.splice(0, this.length);
+			};
+			
+			bikeLinesRef.on('value', function(snapshot)
+			{
+				dataArray.clear();
+				for (var route in snapshot.val())
+				{
+					for (var i=0; i<route.length; i++)
+					{
+						for (var j in snapshot.val()[route][i])
+						{
+							if (j==0 && i>0)
+							{
+								continue
+							}
+							else							
+							{
+								dataArray.push(new google.maps.LatLng(snapshot.val()[route][i][j].jb, snapshot.val()[route][i][j].kb));
+								//console.log(j + ' ' + snapshot.val()[route][i][j].jb, snapshot.val()[route][i][j].kb);
+								
+							}
+						}
+					}
+				}
+			});
+		</script>
+  </body>
+</html>

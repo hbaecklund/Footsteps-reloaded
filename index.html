@@ -31,76 +31,76 @@
     </head>
 
     <body>
-      <div class="row">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="navbar navbar-inverse navbar-fixed-top" style="height:10%">
 
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face"></a>
-            <a href="#menu" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <button type="button" class="btn btn-link">
-                <span class="glyphicon glyphicon-th-list"></span>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face" style="height:30px"></a>
+          <a href="#menu" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" class="btn btn-link">
+              <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#about"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+            <li><a href="#menu"><span class="glyphicon glyphicon-eye-open"></span> See routes</a></li>
+          </ul>
+
+          <form class="navbar-form form-inline">
+
+              <button type="" class="btn-link">
+                <span class="glyphicon glyphicon-map-marker"></span>
+              </button> 
+              <input type="text" class="form-control" id="startLoc" placeholder="Choose starting point" style="width:200px">
+              <input type="text" class="form-control" id="endLoc" placeholder="Choose destination" style="width:200px">
+              <button class="btn-link">
+                <span class="glyphicon glyphicon-map-marker"></span>
               </button>
-            </a>
-          </div>
+            
 
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="#about"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-              <li><a href="#menu"><span class="glyphicon glyphicon-eye-open"></span> See routes</a></li>
-            </ul>
+            <div class="pull-right">
+              <button class="btn-link">
+                <span class="glyphicon glyphicon-pencil" style="vertical-align:middle;"></span>
+              </button>
+              <input type="text" class="form-control" id="routeName" placeholder="Route name" style="width:200px">
+              <!-- plot route -->
+              <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
+                <span class="glyphicon glyphicon-ok"></span>
+              </button> 
+              <!-- Clear -->
+              <button type="button" class="btn btn-link" id="btnClearMap" onclick="clearMap();">
+                <span class="glyphicon glyphicon-trash"></span>
+              </button>
+              <!-- Save route -->
+              <button type="button" class="btn btn-link" id="btnSaveTripFinal" onclick="saveTrip();">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+              </button>
+            </div>
 
-            <form class="navbar-form form-inline">
-
-              <div class="pull-right">
-                <button type="" class="btn-link">
-                  <span class="glyphicon glyphicon-map-marker"></span>
-                </button> 
-                <input type="text" class="form-control" id="startLoc" placeholder="Choose starting point" style="width:200px">
-                <input type="text" class="form-control" id="endLoc" placeholder="Choose destination" style="width:200px">
-                <button class="btn-link">
-                  <span class="glyphicon glyphicon-map-marker"></span>
-                </button>
-
-                <button class="btn-link">
-                  <span class="glyphicon glyphicon-pencil" style="vertical-align:middle;"></span>
-                </button>
-                <input type="text" class="form-control" id="routeName" placeholder="Route name" style="width:200px">
-                <!-- plot route -->
-                <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
-                  <span class="glyphicon glyphicon-ok"></span>
-                </button> 
-                <!-- Clear -->
-                <button type="button" class="btn btn-link" id="btnClearMap" onclick="clearMap();">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </button> 
-                <!-- Save route -->
-                <button type="button" class="btn btn-link" id="btnSaveTripFinal" onclick="saveTrip();">
-                  <span class="glyphicon glyphicon-floppy-disk"></span>
-                </button>
-              </div>
-
-           
+            
           </form>
+
         </div><!--/.nav-collapse -->
-      </div>
-    </div>
+      </nav>
 
-    <div class="row">
-      <div id="canvas">
-        <div id="map"></div>
+      <div class="row">
+        <div id="canvas">
+          <div id="map"></div>
+        </div>
       </div>
-    </div>
 
-    <nav id="menu">
-      <ul id="routesList">
-      </ul>
-    </nav>
+      <nav id="menu">
+        <ul id="routesList">
+        </ul>
+      </nav>
 
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="row" style="margin-left:5px;">
-        <p class="navbar-text text-muted credit pull-left">Copyright &copy Hyper Island DDS'14 Steel Thunderstorms</p>
+      <div class="navbar navbar-inverse navbar-fixed-bottom" style="height:10%;">
+        <div class="row" style="margin-left:5px;">
+          <p class="navbar-text text-muted credit pull-left">Copyright &copy Hyper Island DDS'14 Steel Thunderstorms</p>
+        </div>
       </div>
-    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

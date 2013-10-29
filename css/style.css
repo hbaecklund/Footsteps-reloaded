@@ -1,19 +1,23 @@
 body {
-	padding-top: 50px;
+	padding-top: 70px;
 }
 
 .starter-template {
-	padding: 40px 15px;
+	padding: 15px 15px;
 	text-align: center;
 }
 
 #map {
 	position: absolute;
-	height: 700px;
-	top: 0;
-	bottom: 0;
+	height: 80%;
+	top: 10%;
+	bottom: 10%;
 	left: 0;
 	right: 0;
+}
+
+#canvas {
+	height: 100%;
 }
 
 *:focus {outline:none;} 
@@ -27,29 +31,19 @@ body {
 	color: #e5626c !important;
 }
 
-.navbar-inverse {
-	vertical-align: middle;
-}
-
 .btn:hover,
 .btn:focus {
 	color: #2ecc71 !important;
 	text-decoration: none;
 }
 
-.navbar-brand {
-	float: left;
-	padding: 5px 5px !important;
-	font-size: 18px;
-	line-height: 30px !important;
-}
-
 .navbar-nav {
-	vertical-align: middle;
+	vertical-align: bottom;
+	height: 10%;
 }
 
-.glyphicon {
-	vertical-align: middle;
+.img {
+	padding: 0px 0px 0px 0px;
 }
 
 #themes a
@@ -61,13 +55,12 @@ body {
 	margin: 0 -20px;
 	position: relative;
 }
-#themes a:first-child
-{
+
+#themes a:first-child {
 	border-top: none;
 }
 
-#themes a:before
-{
+#themes a:before {
 	content: '';
 	border: 1px solid #111;
 	vertical-align: middle;
@@ -78,46 +71,35 @@ body {
 	top: 10px;
 	left: 20px;
 }
-#themes a.dark:before
-{
+
+#themes a.dark:before {
 	background: #333;
 }
 
-#themes a.light:before
-{
+#themes a.light:before {
 	background: #f3f3f3;
 }
 
 #themes a.army:before,
-html.army .mm-menu
-{
+html.army .mm-menu {
 	background: #332;
 }
 
 #themes a.navy:before,
-html.navy .mm-menu
-{
+html.navy .mm-menu {
 	background: #323849;
 }
 
 #themes a.bordeau:before,
-html.bordeau .mm-menu
-{
+html.bordeau .mm-menu {
 	background: #422;
 }
 
 .Selected {
-	background: black;
+	background: gray;
 }
 
 #menu ul {
-	padding-top: 50px;
+	padding-top: 70px;
 }
 
-#canvas {
-	height: 100%;
-}
-
-#map {
-	height: 100%;
-}

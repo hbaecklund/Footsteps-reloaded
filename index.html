@@ -7,7 +7,7 @@
   <meta name="author" content="">
   <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-  <title>Starter Template for Bootstrap</title>
+  <title>Stockholm Footsteps</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -31,90 +31,76 @@
     </head>
 
     <body>
-
-      <div class="navbar navbar-inverse navbar-fixed-top">
-
-        <div class="container">
+      <div class="row">
+        <div class="navbar navbar-inverse navbar-fixed-top">
 
           <div class="navbar-header">
-
-            <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face"></a><a href="#menu" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><button type="button" class="btn btn-link">
-            <span class="glyphicon glyphicon-th-list"></span>
-          </button></a>
-        </div>
-
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#about"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-            <li><a href="#menu"><span class="glyphicon glyphicon-eye-open"></span> See routes</a></li>
-          </ul>
-          
-
-          <form class="navbar-form pull-center" role="search">
-
-            <button type="" class="btn-link">
-              <span class="glyphicon glyphicon-map-marker"></span>
-            </button> 
-
-            <div class="form-group pull-center">
-              <input type="text" class="form-control" id="startLoc" placeholder="Choose starting point">
-            </div>
-
-            <div class="form-group pull-center">
-              <input type="text" class="form-control" id="endLoc" placeholder="Choose destination">
-            </div> 
-
-            <button type="" class="btn-link pull-center">
-              <span class="glyphicon glyphicon-map-marker"></span>
-            </button> 
-
-            <!-- plot route -->
-            <button type="button" class="btn btn-link pull-right" id="btnAddTrip2" onclick="plotTrip();">
-              <span class="glyphicon glyphicon-ok"></span>
-            </button> 
-            <!-- Clear -->
-            <button type="button" class="btn btn-link pull-right" id="btnClearMap" onclick="clearMap();">
-              <span class="glyphicon glyphicon-trash"></span>
-            </button> 
-            <!-- Save route -->
-            <button type="button" class="btn btn-link pull-right" id="btnSaveTripFinal" onclick="saveTrip();">
-              <span class="glyphicon glyphicon-floppy-disk"></span>
-            </button>
-
-            <input type="text" class="form-control pull-right" id="routeName" placeholder="Route name" style="width:150px">
-
-            <button type="" class="btn-link pull-right">
-              <span class="glyphicon glyphicon-pencil" style="vertical-align:middle;"></span>
-            </button>
-
-
-
+            <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face"></a>
+            <a href="#menu" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <button type="button" class="btn btn-link">
+                <span class="glyphicon glyphicon-th-list"></span>
+              </button>
+            </a>
           </div>
-        </form>
-      </div><!--/.nav-collapse -->
+
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#about"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+              <li><a href="#menu"><span class="glyphicon glyphicon-eye-open"></span> See routes</a></li>
+            </ul>
+
+            <form class="navbar-form form-inline">
+
+              <div class="pull-right">
+                <button type="" class="btn-link">
+                  <span class="glyphicon glyphicon-map-marker"></span>
+                </button> 
+                <input type="text" class="form-control" id="startLoc" placeholder="Choose starting point" style="width:200px">
+                <input type="text" class="form-control" id="endLoc" placeholder="Choose destination" style="width:200px">
+                <button class="btn-link">
+                  <span class="glyphicon glyphicon-map-marker"></span>
+                </button>
+
+                <button class="btn-link">
+                  <span class="glyphicon glyphicon-pencil" style="vertical-align:middle;"></span>
+                </button>
+                <input type="text" class="form-control" id="routeName" placeholder="Route name" style="width:200px">
+                <!-- plot route -->
+                <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button> 
+                <!-- Clear -->
+                <button type="button" class="btn btn-link" id="btnClearMap" onclick="clearMap();">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button> 
+                <!-- Save route -->
+                <button type="button" class="btn btn-link" id="btnSaveTripFinal" onclick="saveTrip();">
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+
+           
+          </form>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-  </div>
 
-
-  <div class="row">
-    <div id="canvas">
-      <div id="map"></div>
+    <div class="row">
+      <div id="canvas">
+        <div id="map"></div>
+      </div>
     </div>
-  </div>
 
+    <nav id="menu">
+      <ul id="routesList">
+      </ul>
+    </nav>
 
-
-
-  <nav id="menu">
-    <ul id="routesList">
-    </ul>
-  </nav>
-
-  <div class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text text-muted credit pull-left">Copyright &copy Hyper Island DDS'14 Steel Thunderstorms</p>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="row" style="margin-left:5px;">
+        <p class="navbar-text text-muted credit pull-left">Copyright &copy Hyper Island DDS'14 Steel Thunderstorms</p>
+      </div>
     </div>
-  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -19,31 +19,38 @@ body {
 *:focus {outline:none;} 
 
 .btn-link {
-  color: #e5626c !important;
- 
+	color: #e5626c !important;
+
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #e5626c !important;
+	color: #e5626c !important;
+}
+
+.navbar-inverse {
+	vertical-align: middle;
 }
 
 .btn:hover,
 .btn:focus {
-  color: #2ecc71 !important;
-  text-decoration: none;
+	color: #2ecc71 !important;
+	text-decoration: none;
 }
 
 .navbar-brand {
-  float: left;
-  padding: 5px 5px !important;
-  font-size: 18px;
-  line-height: 20px;
+	float: left;
+	padding: 5px 5px !important;
+	font-size: 18px;
+	line-height: 30px !important;
 }
 
 .navbar-nav {
 	vertical-align: middle;
 }
 
+.glyphicon {
+	vertical-align: middle;
+}
 
 #themes a
 {
@@ -58,6 +65,7 @@ body {
 {
 	border-top: none;
 }
+
 #themes a:before
 {
 	content: '';
@@ -74,20 +82,24 @@ body {
 {
 	background: #333;
 }
+
 #themes a.light:before
 {
 	background: #f3f3f3;
 }
+
 #themes a.army:before,
 html.army .mm-menu
 {
 	background: #332;
 }
+
 #themes a.navy:before,
 html.navy .mm-menu
 {
 	background: #323849;
 }
+
 #themes a.bordeau:before,
 html.bordeau .mm-menu
 {

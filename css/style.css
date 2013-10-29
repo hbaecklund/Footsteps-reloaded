@@ -1,5 +1,6 @@
 body {
 	padding-top: 70px;
+	vertical-align: middle;
 }
 
 .starter-template {
@@ -9,22 +10,25 @@ body {
 
 #map {
 	position: absolute;
-	height: 80%;
-	top: 10%;
-	bottom: 10%;
-	left: 0;
-	right: 0;
+	top: 61px;
+	bottom: 50px;
+	left: 0px;
+	right: 0px;
 }
 
 #canvas {
-	height: 100%;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 *:focus {outline:none;} 
 
+.img {
+	vertical-align: middle !important;
+}
+
 .btn-link {
 	color: #e5626c !important;
-
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -38,12 +42,42 @@ body {
 }
 
 .navbar-nav {
-	vertical-align: bottom;
+	vertical-align: middle;
 	height: 10%;
+	vertical-align: middle !important;
 }
 
-.img {
-	padding: 0px 0px 0px 0px;
+.navbar-fixed-top {
+	max-height: 61px !important;
+	height: px !important;
+	vertical-align: middle !important;
+}
+
+.navbar-brand {
+	float: none !important;
+}
+
+.navbar-collapse {
+	max-height: 50px !important;
+}
+
+.navbar-ex1-collapse {
+	max-height: 50px !important;
+}
+
+.navbar-header {
+	max-height: 61px !important;
+}
+
+.navbar-toggle {
+
+  padding: 0px 0px !important;
+  margin-top: 0px;
+  margin-right: 5px;
+  margin-bottom: 0px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
 }
 
 #themes a
@@ -100,6 +134,5 @@ html.bordeau .mm-menu {
 }
 
 #menu ul {
-	padding-top: 70px;
+	padding-top: 90px;
 }
-

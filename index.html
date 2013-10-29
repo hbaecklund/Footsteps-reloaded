@@ -31,10 +31,10 @@
     </head>
 
     <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top" style="height:10%">
+      <nav class="navbar navbar-inverse navbar-fixed-top" style="padding:5px">
 
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face" style="height:30px"></a>
+        <div class="navbar-header" style="padding:5px">
+          <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face"></a>
           <a href="#menu" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <button type="button" class="btn btn-link">
               <span class="glyphicon glyphicon-th-list"></span>
@@ -50,36 +50,35 @@
 
           <form class="navbar-form form-inline">
 
-              <button type="" class="btn-link">
-                <span class="glyphicon glyphicon-map-marker"></span>
-              </button> 
-              <input type="text" class="form-control" id="startLoc" placeholder="Choose starting point" style="width:200px">
-              <input type="text" class="form-control" id="endLoc" placeholder="Choose destination" style="width:200px">
-              <button class="btn-link">
-                <span class="glyphicon glyphicon-map-marker"></span>
-              </button>
-            
+            <button type="" class="btn-link">
+              <span class="glyphicon glyphicon-map-marker"></span>
+            </button> 
+            <input type="text" class="form-control" id="startLoc" placeholder="Choose starting point" style="width:200px">
+            <input type="text" class="form-control" id="endLoc" placeholder="Choose destination" style="width:200px">
+            <button class="btn-link">
+              <span class="glyphicon glyphicon-map-marker"></span>
+            </button>
+          
+            <!-- plot route -->
+            <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
+              <span class="glyphicon glyphicon-ok"></span>
+            </button> 
+            <!-- Clear -->
+            <button type="button" class="btn btn-link" id="btnClearMap" onclick="clearMap();">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
 
-            <div class="pull-right">
+            <div class="pull-right" style="padding:0px">
               <button class="btn-link">
                 <span class="glyphicon glyphicon-pencil" style="vertical-align:middle;"></span>
               </button>
-              <input type="text" class="form-control" id="routeName" placeholder="Route name" style="width:200px">
-              <!-- plot route -->
-              <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
-                <span class="glyphicon glyphicon-ok"></span>
-              </button> 
-              <!-- Clear -->
-              <button type="button" class="btn btn-link" id="btnClearMap" onclick="clearMap();">
-                <span class="glyphicon glyphicon-trash"></span>
-              </button>
+              <input type="text" class="form-control" id="routeName" placeholder="Name your route :)" style="width:200px">
               <!-- Save route -->
               <button type="button" class="btn btn-link" id="btnSaveTripFinal" onclick="saveTrip();">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
               </button>
             </div>
 
-            
           </form>
 
         </div><!--/.nav-collapse -->
@@ -96,7 +95,7 @@
         </ul>
       </nav>
 
-      <div class="navbar navbar-inverse navbar-fixed-bottom" style="height:10%;">
+      <div class="navbar navbar-inverse navbar-fixed-bottom" style="padding=0px">
         <div class="row" style="margin-left:5px;">
           <p class="navbar-text text-muted credit pull-left">Copyright &copy Hyper Island DDS'14 Steel Thunderstorms</p>
         </div>

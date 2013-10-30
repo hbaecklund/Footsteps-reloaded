@@ -24,10 +24,6 @@ body {
 
 *:focus {outline:none;} 
 
-.img {
-	vertical-align: middle !important;
-}
-
 .btn-link {
 	color: #e5626c !important;
 }
@@ -135,7 +131,7 @@ html.bordeau .mm-menu {
 }
 
 #menu ul {
-	padding-top: 90px;
+	padding-top: 61px;
 }
 
 #about-pane {
@@ -180,4 +176,9 @@ hr {
     color: #B6B6B4;
     margin: 1em 0;
     padding: 0;
+}
+
+.portfolio {
+	color: #e5626c;
+	opacity: 0.5;
 }

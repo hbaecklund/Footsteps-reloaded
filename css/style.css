@@ -1,6 +1,7 @@
 body {
 	padding-top: 70px;
 	vertical-align: middle;
+	max-width: 100%;
 }
 
 .starter-template {
@@ -135,4 +136,33 @@ html.bordeau .mm-menu {
 
 #menu ul {
 	padding-top: 90px;
+}
+
+#about-pane {
+	position: absolute;
+	display: none;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,.75);
+	z-index: 100000;
+}
+
+#about-inner {
+	background: #ffffff;
+	width: 500px;
+	height: 400px;
+	margin: auto;
+}
+
+#about-close {
+	width: 500px;
+	text-align: right;
+	display: block;
+	margin: auto;
+	margin-top: 80px;
+	margin-bottom: 10px;
+	color: #ffffff;
+	font-weight: bold;
 }

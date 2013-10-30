@@ -40,6 +40,28 @@ function initialize() {
 	// });
 	// heatmap.setMap(map);
 
+	$('#about-link').on('click',function() {
+		//console.log("clicked...");
+
+		var $menu = $('nav#menu');
+		$menu.trigger("close");
+
+		if ($('#about-pane').is(':visible')) {
+			$('#about-pane').hide();
+		}
+
+		else {
+			$('#about-pane').show();
+		}
+	});
+
+	$('#about-close').on('click',function() {
+		console.log("asdfasdf");
+		$('#about-pane').hide();
+	});
+//	$('#about-pane').hide();
+
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -53,7 +75,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 // 	{
 // 		$('#btnAddTrip2');
 // 	}
-// });
+// });s
 
 function clearMap()
 {

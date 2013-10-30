@@ -264,7 +264,8 @@
 						if ( $(this).hasClass( _c.current ) )
 						{
 							e.stopImmediatePropagation();
-							return false;
+							return that.close( $(this), that.opts, that.conf );
+							//return false;
 						}
 						return that.open( $(this), that.opts, that.conf );
 					}

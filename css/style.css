@@ -72,13 +72,13 @@ body {
 
 .navbar-toggle {
 
-  padding: 0px 0px !important;
-  margin-top: 0px;
-  margin-right: 5px;
-  margin-bottom: 0px;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 5px;
+	padding: 0px 0px !important;
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-radius: 5px;
 }
 
 #themes a
@@ -150,10 +150,15 @@ html.bordeau .mm-menu {
 }
 
 #about-inner {
-	background: #ffffff;
+	background: #EDEDEF;
 	width: 500px;
-	height: 400px;
+	height: 500px;
 	margin: auto;
+	padding-left: 20px; 
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
 }
 
 #about-close {
@@ -165,4 +170,14 @@ html.bordeau .mm-menu {
 	margin-bottom: 10px;
 	color: #ffffff;
 	font-weight: bold;
+}
+
+hr {
+	display: block;
+	height: 1px;
+    border: 0;
+    border-top: 1px solid #B6B6B4;
+    color: #B6B6B4;
+    margin: 1em 0;
+    padding: 0;
 }

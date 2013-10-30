@@ -60,8 +60,6 @@ function initialize() {
 		$('#about-pane').hide();
 	});
 //	$('#about-pane').hide();
-
-
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -141,6 +139,7 @@ function saveTrip()
 Array.prototype.clear = function() {
 	this.splice(0, this.length);
 };
+
 
 //DANIEL'S CODE STARTS HERE:::
 

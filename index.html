@@ -48,7 +48,6 @@
           </ul>
 
           <form class="navbar-form form-inline">
-
             <button type="" class="btn-link">
               <span class="glyphicon glyphicon-map-marker"></span>
             </button> 
@@ -57,7 +56,6 @@
             <button class="btn-link">
               <span class="glyphicon glyphicon-map-marker"></span>
             </button>
-
             <!-- plot route -->
             <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
               <span class="glyphicon glyphicon-ok"></span>
@@ -66,12 +64,11 @@
             <button type="button" class="btn btn-link" id="btnClearMap" onclick="clearMap();">
               <span class="glyphicon glyphicon-trash"></span>
             </button>
-
             <div class="pull-right" style="padding:0px">
               <button class="btn-link">
                 <span class="glyphicon glyphicon-pencil" style="vertical-align:middle;"></span>
               </button>
-              <input type="text" class="form-control" id="routeName" placeholder="Name your route :)" style="width:200px">
+              <input type="text" class="form-control" id="routeName" placeholder="Just a short description :)" style="width:200px">
               <!-- Save route -->
               <button type="button" class="btn btn-link" id="btnSaveTripFinal" onclick="saveTrip();">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
@@ -99,16 +96,26 @@
       </div>
 
       <div id="about-pane">
-        <a id="about-close" href="#close">CLOSE</a>
+        <a id="about-close" href="#close" style="color:#E5626C">[ X ]</a>
         <div id="about-inner">
-          hello...
+          <hr>
+          <center><h4>Why</h4></center>
+          <p>We wanted more genuine and varied travel advice for visitors in Stockholm by crowdsourcing from the community. It will showcase lesser-known areas and bring like-minded people with specific interests together. Additionally, your friend can also design custom travel tips for you!</p>
+          <p>With 10 000 000 visitors and 40 000 new residents moving in to Stockholm every year, Reddit and other platforms have generated a great number of threads discussing itineraries in Stockholm. Even for Stockholmers, it gets old walking down the same streets and visiting the usual cafes or restaurants.</p>
+          <p>Now, how about experiencing the city from another persons perspective, and walk a day in their footsteps? Or show the way?</p>
+          <hr>
+          <center><h4>How it works</h4></center>
+          <ol>
+            <li>Create your best route on the map using startpoints and endpoints, or drag the route if you want to. </li>
+            <li>Save the route and enable others to access your route by clicking on the disc icon. </li>
+            <li>View yours and other routes by clicking “See routes”.</li>
+          </ol>
+          <hr>
         </div>
       </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/main.js"></script>
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script type="text/javascript" src="js/main.js"></script>
 
-  </body>
-  </html>
+    </body>
+    </html>

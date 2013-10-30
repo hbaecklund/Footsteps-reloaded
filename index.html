@@ -23,7 +23,7 @@
       <script src="../../assets/js/respond.min.js"></script>
       <![endif]-->
       
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization,geometry&sensor=false"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization,geometry&sensor=true"></script>
       <script type='text/javascript' src="https://cdn.firebase.com/v0/firebase.js"></script>
       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
       <script src="js/jquery.mmenu.js"></script>
@@ -34,7 +34,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top" style="padding:5px">
 
         <div class="navbar-header" style="padding:5px">
-          <a class="navbar-brand" href="index.html"><img src="pink.svg" alt="Smiley face"></a>
+          <a class="navbar-brand" href="index.html"><img src="assets/feet.png" alt="Smiley face" style="height:40px"></a>
           <a href="#menu" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <button type="button" class="btn btn-link">
               <span class="glyphicon glyphicon-th-list"></span>
@@ -58,7 +58,7 @@
             <button class="btn-link">
               <span class="glyphicon glyphicon-map-marker"></span>
             </button>
-          
+            
             <!-- plot route -->
             <button type="button" class="btn btn-link" id="btnAddTrip2" onclick="plotTrip();">
               <span class="glyphicon glyphicon-ok"></span>
@@ -98,6 +98,13 @@
       <div class="navbar navbar-inverse navbar-fixed-bottom" style="padding=0px">
         <div class="row" style="margin-left:5px;">
           <p class="navbar-text text-muted credit pull-left">Copyright &copy Hyper Island DDS'14 Steel Thunderstorms</p>
+        </div>
+      </div>
+
+      <div id="about-pane">
+        <a id="about-close" href="#close">CLOSE</a>
+        <div id="about-inner">
+          hello...
         </div>
       </div>
 

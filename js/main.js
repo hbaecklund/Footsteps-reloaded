@@ -32,13 +32,14 @@ function initialize() {
 	map.mapTypes.set('thegrey', mapType);
 	map.setMapTypeId('thegrey');
 
-// var heatmap = new google.maps.visualization.HeatmapLayer({
-// data: dataArray,
-// radius: 15,
-// dissipate: true,
-// maxIntensity: 10
-// });
-// heatmap.setMap(map);
+	// var heatmap = new google.maps.visualization.HeatmapLayer({
+	// 	data: dataArray,
+	// 	radius: 15,
+	// 	dissipate: true,
+	// 	maxIntensity: 10
+	// });
+	// heatmap.setMap(map);
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -114,6 +115,7 @@ function saveTrip()
 	// }
 }
 
+
 Array.prototype.clear = function() {
 	this.splice(0, this.length);
 };
@@ -169,7 +171,7 @@ routeLinesRef.limit(10).on('child_added', function(snapshot)
   	
   	// Add the route to the map
   	routePath.setMap(map);
-	
+
 	// Set the route to be invisible. By default, all routes are HIDDEN until you hover over them in the sidebar menu.
 	routePath.setVisible(false);
 
@@ -178,7 +180,7 @@ routeLinesRef.limit(10).on('child_added', function(snapshot)
 	$("#routesList").append("<li data-id=" + id + "><a href='#'>" + snapshot.val().name + "</a></li>");
 });
 
-	$(function() {
+$(function() {
 	var $menu = $('nav#menu'),
 	$html = $('html');
 

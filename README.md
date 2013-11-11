@@ -1,7 +1,7 @@
 Footsteps-reloaded
 ==================
 
-    <center>![logo](http://i.imgur.com/8cTxCTr.jpg?1)<center>
+<center><center>![logo](http://i.imgur.com/8cTxCTr.jpg?1)<center><center>
 
 ![ ](http://i.imgur.com/hQdQRYy.png?1)
 
